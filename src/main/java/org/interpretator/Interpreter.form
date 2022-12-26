@@ -20,7 +20,8 @@
       <component id="addc7" class="javax.swing.JButton" binding="parse">
         <constraints border-constraint="North"/>
         <properties>
-          <text value="Button"/>
+          <horizontalAlignment value="0"/>
+          <text value="Parse"/>
         </properties>
       </component>
     </children>
