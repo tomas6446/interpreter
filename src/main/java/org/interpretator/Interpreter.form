@@ -17,6 +17,12 @@
           <preferredSize width="500" height="18"/>
         </properties>
       </component>
+      <component id="addc7" class="javax.swing.JButton" binding="parse">
+        <constraints border-constraint="North"/>
+        <properties>
+          <text value="Button"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
