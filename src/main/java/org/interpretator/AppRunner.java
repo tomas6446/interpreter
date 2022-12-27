@@ -14,6 +14,7 @@ public class AppRunner {
             frame.setContentPane(new Interpreter(player).getjPanel());
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
+
             frame.add(player);
             frame.pack();
             frame.setSize(1200, 800);

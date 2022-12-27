@@ -13,29 +13,28 @@ public class Parser {
 
     public Parser(Player player) {
         this.player = player;
-
-
-    }
-
-    public void parse(String text) {
-        String[] instructions = text.split("\n");
-        Arrays.stream(instructions).toList().forEach(System.out::println);
-        Arrays.stream(instructions).toList().forEach(this::define);
-
     }
 
     @SneakyThrows
-    private void define(String instruction) {
-        new Timer(1000, e -> {
-            switch (instruction) {
-                case "up" -> player.up();
-                case "down" -> player.down();
-                case "left" -> player.left();
-                case "right" -> player.right();
-                default -> throw new IllegalStateException("Unexpected value: " + instruction);
-            }
-            player.repaint();
-        }).start();
+    public void parse(String text) {
+        String[] instructions = text.split("[\n ]");
+        Arrays.stream(instructions).toList().forEach(System.out::println);
 
+        int i = 1;
+        for (String instruction : Arrays.stream(instructions).toList()) {
+            Timer timer = new Timer(i++ * 700, e -> processInstruction(Instruction.getEnum(instruction)));
+            timer.start();
+            timer.setRepeats(false);
+        }
+    }
+
+    private void processInstruction(Instruction instruction) {
+        switch (instruction) {
+            case UP -> player.up();
+            case DOWN -> player.down();
+            case LEFT -> player.left();
+            case RIGHT -> player.right();
+            default -> throw new IllegalStateException("Unexpected value: " + instruction);
+        }
     }
 }

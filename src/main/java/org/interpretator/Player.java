@@ -13,8 +13,8 @@ import java.awt.*;
 @Setter
 public class Player extends JPanel {
 
-    private final int PLAYER_WIDTH = 10;
-    private final int PLAYER_HEIGHT = 10;
+    private final int PLAYER_WIDTH = 50;
+    private final int PLAYER_HEIGHT = 50;
     private int xPos;
     private int yPos;
 
@@ -39,5 +39,6 @@ public class Player extends JPanel {
         super.paintComponent(graphics);
         graphics.setColor(Color.RED);
         graphics.fillRect(xPos, yPos, PLAYER_WIDTH, PLAYER_HEIGHT);
+        repaint();
     }
 }
